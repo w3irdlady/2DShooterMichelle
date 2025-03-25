@@ -22,7 +22,7 @@ public class EnemyShooting : MonoBehaviour
     void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        Debug.Log(distance); //para saber a qué distancia está
+        //Debug.Log(distance); //para saber a qué distancia está
 
         if (distance < shotingRange)
         {

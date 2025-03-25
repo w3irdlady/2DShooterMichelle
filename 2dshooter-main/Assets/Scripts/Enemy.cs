@@ -21,11 +21,13 @@ public class Enemy : MonoBehaviour
         {
             currentTarget = pointB.position;
             sr.flipX = false;
+            Debug.Log("Yendo a Punto B.");
         }
         else if(transform.position == pointB.position)
         {
             currentTarget = pointA.position;
             sr.flipX = true;
+            Debug.Log("Yendo a Punto A.");
         }
 
 

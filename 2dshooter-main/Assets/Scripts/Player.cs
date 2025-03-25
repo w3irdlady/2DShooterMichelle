@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     private Animator anim;
 
+    private bool isFacengRight=true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,37 +34,59 @@ public class Player : MonoBehaviour
     void Update()
     {
         /*  velocidad del personaje  */
-
-        direction = Input.GetAxisRaw("Horizontal");                         //variable dirección toma los controles del input manager Horizontal
-        rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);    //la velocidad del rigidbody equivale un nuevo vector dos
-
-        /* salto del personaje */
-
-
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (!PauseMenu.instance.isPaused)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            direction = Input.GetAxisRaw("Horizontal");                         //variable dirección toma los controles del input manager Horizontal
+            rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);    //la velocidad del rigidbody equivale un nuevo vector dos
+
+            /* salto del personaje */
+
+
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+
+            /* dirección del personaje */
+
+            if (rb.velocity.x < 0)
+            {
+                //sr.flipX = true;      // Se quita por que no facilita el disparo
+
+                //Hace que todo el gameobject se gire, incluyendo los elementos child
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+
+                //Player está mirando a la izquierda
+                isFacengRight = false;
+            }
+
+            else if (rb.velocity.x > 0)
+            {
+                //sr.flipX = false;       // Se quita por que no facilita el disparo
+
+                //Hace que todo el gameobject se gire, incluyendo los elementos child
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+
+                //Player está mirando a la derecha
+                isFacengRight = true;
+            }
         }
 
-        /* dirección del personaje */
-
-        if (rb.velocity.x < 0)
-        {
-            sr.flipX = true;
-        }
-
-        else if (rb.velocity.x > 0)
-        {
-            sr.flipX = false;
-        }
+       
 
         /* animaciones personaje */
 
         anim.SetFloat("moveSpeed", Mathf.Abs (rb.velocity.x));
         anim.SetBool("isGrounded", isGrounded);
 
+    }
+
+    public bool IsFacingRight()
+    {
+        return isFacengRight;
     }
 
 
