@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("El nombre de la escena no está asignado.");
+            Debug.LogWarning("copia escena miguel");
         }
     }
 

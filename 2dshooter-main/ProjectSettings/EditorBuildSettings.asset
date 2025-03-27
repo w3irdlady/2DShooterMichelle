@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NIvelMiguel.unity
     guid: e088fb7fb0838414ca5542067517d8fb
+  - enabled: 1
+    path: Assets/Main Menu.unity
+    guid: 395ec3b908678f64297fa443810e7432
+  - enabled: 1
+    path: Assets/copia escena miguel.unity
+    guid: 2959a3ed4b7ebcc44a3a1f2aa9cce9a7
   m_configObjects: {}

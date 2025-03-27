@@ -43,12 +43,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: fondo
+  - name: sky
     uniqueID: 1712539097
     locked: 0
-  - name: moss
+  - name: rocks
     uniqueID: 3259915253
     locked: 0
-  - name: player
+  - name: ground
     uniqueID: 3505960791
+    locked: 0
+  - name: clouds
+    uniqueID: 3393793869
+    locked: 0
+  - name: clouds
+    uniqueID: 3371458595
+    locked: 0
+  - name: moss
+    uniqueID: 3037893115
+    locked: 0
+  - name: player
+    uniqueID: 1988355257
     locked: 0
